@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+    font-family: Arial, sans-serif;
+  }
+  .right_1 {
+    grid-area:right_1;
+  }
+  .right_2 {
+    grid-area: right_ 2;
+  }
+  .right_3 {
+    grid-area: right_3;
+  }
+  .right {
+    height: 550px;
+    display: flex;
+    justify-content: space-between;
+    display: grid;
+    grid-template-areas:
+      "right1 right2"
+      "right3 right3";
+  }
+  .col1 {
+    grid-area: card1;
+  }
+  .col2 {
+    grid-area: card2;
+  }
+  .col3 {
+    grid-area: card3;
+  }
+  .col4 {
+    grid-area: card4;
+  }
+  .col5 {
+    grid-area: card5;
+  }
+  .col6 {
+    grid-area: card6;
+  }
+  .col7 {
+    grid-area: card7;
+  }
+  .col8 {
+    grid-area: card8;
+  }
+  
+  .right_3 {
+    display: grid;
+    grid-template-areas:
+      "card1 card2 card3 card4 card5"
+      "card0 card6 card7 card8 card8";
+  
+    /* "card6 card6 card7 card8 card8"; */
+  }
+  .icon {
+    display: flex;
+    letter-spacing: 5px;
+  }
+  table {
+    padding: 20px;
+  }
+  .hi {
+    padding: 0px 20px;
+  }
+  img {
+    width: 70px;
+    height: 8opx;
+  }
+  
+  .col1,
+  .col2,
+  .col3,
+  .col4,
+  .col5,
+  .col6,
+  .col7,
+  .col8 {
+    height: 100px;
+    display: flex;
+    width: 250px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  .card1_android {
+    margin-left: 15px;
+  }
