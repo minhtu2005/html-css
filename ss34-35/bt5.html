@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danh sách họ tên</title>
+</head>
+<body>
+
+<ul id="nameList">
+</ul>
+
+<script>
+var names = ["Nguyễn Văn A", "Vũ Thị B", "Nguyễn Minh C"];
+var ulElement = document.getElementById("nameList");
+names.forEach(function(name) {
+    var liElement = document.createElement("li");
+    liElement.textContent = name;
+    ulElement.appendChild(liElement);
+});
+</script>
+
+</body>
+</html>

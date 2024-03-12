@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thay đổi style</title>
+<style>
+    .highlight {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<p id="content">Nội dung hiện tại</p>
+<button onclick="thayDoiStyle()">Thay đổi style</button>
+
+<script>
+function thayDoiStyle() {
+    var pElement = document.getElementById("content");
+    pElement.classList.toggle("highlight");
+}
+</script>
+
+</body>
+</html>
