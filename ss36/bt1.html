@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>your answer</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    } 
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>your answer</h2>
+    <input type="text" id="answerInput" placeholder="Nhập câu trả lời...">
+    <button onclick="yourAnswer()">Kiểm tra</button>
+    <p id="message"></p>
+</div>
+
+<script>
+    function yourAnswer() {
+        var answerInput = document.getElementById("answerInput").value;
+        var messageElement = document.getElementById("message");
+
+        if (answerInput.length > 10) {
+            messageElement.innerHTML = "Câu trả lời không hợp lệ (độ dài lớn hơn 10 ký tự).";
+            messageElement.style.color = "red";
+        } else {
+            messageElement.innerHTML = "Câu trả lời hợp lệ.";
+            messageElement.style.color = "green";
+        }
+    }
+</script>
+</body>
+</html>

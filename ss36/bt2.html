@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Button Content</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 50px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <button id="myButton" onclick="changeButtonText()">hello boy</button>
+</div>
+
+<script>
+    function changeButtonText() {
+        var button = document.getElementById("myButton");
+        if (button.innerHTML === "hello boy") {
+            button.innerHTML = "hello ly";
+        } else {
+            button.innerHTML = "hello boy";
+        }
+    }
+</script>
+</body>
+</html>

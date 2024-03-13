@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculate Sum</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 50px;
+    }
+    input {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <input type="number" id="input1" oninput="calculateSum()">
+    <input type="number" id="input2" oninput="calculateSum()">
+    <input type="number" id="sumInput" readonly>
+</div>
+
+<script>
+    function calculateSum() {
+        var input1 = parseFloat(document.getElementById("input1").value);
+        var input2 = parseFloat(document.getElementById("input2").value);
+        var sum = input1 + input2;
+        document.getElementById("sumInput").value = sum;
+    }
+</script>
+</body>
+</html>
