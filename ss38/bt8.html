@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weight Converter</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        text-align: center;
+    }
+    input {
+        width: 100px;
+        padding: 5px;
+        margin: 5px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Weight Converter</h2>
+    <div>
+        <input type="number" id="kilograms" placeholder="Kilograms" oninput="convertWeight(this.value, 'kg')">
+        <input type="number" id="grams" placeholder="Grams" oninput="convertWeight(this.value, 'g')">
+        <input type="number" id="pounds" placeholder="Pounds" oninput="convertWeight(this.value, 'lb')">
+        <input type="number" id="ounces" placeholder="Ounces" oninput="convertWeight(this.value, 'oz')">
+    </div>
+</div>
+
+<script>
+    function convertWeight(value, unit) {
+        value = parseFloat(value);
+
+        switch(unit) {
+            case 'kg':
+                document.getElementById('grams').value = value * 1000;
+                document.getElementById('pounds').value = value * 2.20462;
+                document.getElementById('ounces').value = value * 35.274;
+                break;
+            case 'g':
+                document.getElementById('kilograms').value = value / 1000;
+                document.getElementById('pounds').value = value * 0.00220462;
+                document.getElementById('ounces').value = value * 0.035274;
+                break;
+            case 'lb':
+                document.getElementById('kilograms').value = value / 2.20462;
+                document.getElementById('grams').value = value / 0.00220462;
+                document.getElementById('ounces').value = value * 16;
+                break;
+            case 'oz':
+                document.getElementById('kilograms').value = value / 35.274;
+                document.getElementById('grams').value = value / 0.035274;
+                document.getElementById('pounds').value = value * 0.0625;
+                break;
+            default:
+                break;
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Countdown</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        text-align: center;
+        font-size: 36px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container" id="countdown">
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var countdownDiv = document.getElementById("countdown");
+        var countTo = 10; 
+        var delay = 1000; 
+
+        function startCountdown() {
+            var count = 0;
+            var interval = setInterval(function() {
+                countdownDiv.textContent = count;
+                count++;
+                if (count > countTo) {
+                    clearInterval(interval);
+                }
+            }, delay);
+        }
+
+        startCountdown();
+    });
+</script>
+
+</body>
+</html>

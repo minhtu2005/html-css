@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water Intake Tracker</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        text-align: center;
+    }
+    #big-cup {
+        width: 200px;
+        height: 200px;
+        background-color: #ccc;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+    .small-cup {
+        width: 50px;
+        height: 50px;
+        background-color: #ccc;
+        display: inline-block;
+        margin: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .small-cup.selected {
+        background-color: #00f;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div id="big-cup">2L</div>
+    <div id="small-cups">
+        <div class="small-cup"></div>
+        <div class="small-cup"></div>
+        <div class="small-cup"></div>
+        <div class="small-cup"></div>
+        <div class="small-cup"></div>
+        <div class="small-cup"></div>
+        <div class="small-cup"></div>
+        <div class="small-cup"></div>
+    </div>
+</div>
+
+<script>
+    var bigCup = document.getElementById("big-cup");
+    var smallCups = document.querySelectorAll(".small-cup");
+
+    smallCups.forEach(function(cup, index) {
+        cup.addEventListener("click", function() {
+            fillCup(index);
+        });
+    });
+
+    function fillCup(index) {
+        smallCups[index].classList.toggle("selected");
+
+        var selectedCups = document.querySelectorAll(".small-cup.selected").length;
+
+        var totalLiters = (selectedCups * 0.25).toFixed(2); 
+        
+        bigCup.textContent = totalLiters + "L";
+        bigCup.style.height = (totalLiters / 2) * 100 + "%"; 
+    }
+</script>
+
+</body>
+</html>

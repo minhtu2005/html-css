@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Step Navigation</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .steps {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .step {
+        width: 30px;
+        height: 30px;
+        border: 2px solid #ccc;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        color: #ccc;
+        cursor: pointer;
+    }
+    .step.active {
+        border-color: #00f;
+        color: #00f;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div class="steps">
+    <div class="step">1</div>
+    <div class="step">2</div>
+    <div class="step">3</div>
+    <div class="step">4</div>
+</div>
+<button id="prevBtn" onclick="prevStep()" disabled>Previous</button>
+<button id="nextBtn" onclick="nextStep()">Next</button>
+<script>
+    var currentStep = 1;
+    var totalSteps = 4;
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
+
+    function updateSteps() {
+        var steps = document.querySelectorAll(".step");
+        steps.forEach(function(step, index) {
+            if (index + 1 === currentStep) {
+                step.classList.add("active");
+            } else {
+                step.classList.remove("active");
+            }
+        });
+        if (currentStep === 1) {
+            prevBtn.disabled = true;
+        } else {
+            prevBtn.disabled = false;
+        }
+        if (currentStep === totalSteps) {
+            nextBtn.disabled = true;
+        } else {
+            nextBtn.disabled = false;
+        }
+    }
+    function nextStep() {
+        if (currentStep < totalSteps) {
+            currentStep++;
+            updateSteps();
+        }
+    }
+    function prevStep() {
+        if (currentStep > 1) {
+            currentStep--;
+            updateSteps();
+        }
+    }
+    updateSteps();
+</script>
+</body>
+</html>

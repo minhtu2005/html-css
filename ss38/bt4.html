@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jokes Generator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        transition: background-color 0.5s ease;
+    }
+    .container {
+        text-align: center;
+    }
+    #joke {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div id="joke">Press the button to get a joke!</div>
+    <button onclick="getJoke()">Get Another Joke</button>
+</div>
+
+<script>
+    var jokes = [
+        "Why don't scientists trust atoms? Because they make up everything!",
+        "What do you call cheese that isn't yours? Nacho cheese!",
+        "I'm reading a book on anti-gravity. It's impossible to put down!",
+        "Parallel lines have so much in common. It's a shame they'll never meet.",
+        "Why did the scarecrow win an award? Because he was outstanding in his field!",
+        "What do you call an alligator in a vest? An investigator!",
+        "Did you hear about the mathematician who's afraid of negative numbers? He'll stop at nothing to avoid them!",
+        "I used to play piano by ear, but now I use my hands.",
+        "What's orange and sounds like a parrot? A carrot!",
+        "Why did the bicycle fall over? Because it was two-tired!"
+    ];
+
+    function getJoke() {
+        var randomIndex = Math.floor(Math.random() * jokes.length);
+        var joke = jokes[randomIndex];
+        document.getElementById("joke").textContent = joke;
+
+        var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        document.body.style.backgroundColor = randomColor;
+    }
+</script>
+
+</body>
+</html>
