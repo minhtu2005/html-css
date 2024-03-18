@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Player Management</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        text-align: center;
+    }
+    input[type="text"] {
+        padding: 5px;
+        margin: 10px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Player Management</h2>
+    <input type="text" id="playerId" placeholder="Enter Player ID">
+    <button onclick="deletePlayer()">Delete Player</button>
+    <div id="playerList">
+        <p>Player 1 (ID: 1)</p>
+        <p>Player 2 (ID: 2)</p>
+        <p>Player 3 (ID: 3)</p>
+        <p>Player 4 (ID: 4)</p>
+        <p>Player 5 (ID: 5)</p>
+    </div>
+</div>
+
+<script>
+    function deletePlayer() {
+        var playerId = document.getElementById("playerId").value;
+        var playerToRemove = document.getElementById("player-" + playerId);
+
+        if (playerToRemove) {
+            playerToRemove.remove();
+        } else {
+            alert("Player not found!");
+        }
+    }
+</script>
+
+</body>
+</html>

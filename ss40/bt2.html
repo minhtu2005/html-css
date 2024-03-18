@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quản Lý Cầu Thủ</title>
+<style>
+    .player {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+<h1>Quản Lý Cầu Thủ</h1>
+<form id="playerForm">
+    <label for="playerName">Tên Cầu Thủ:</label>
+    <input type="text" id="playerName">
+    <button type="submit">Thêm Cầu Thủ</button>
+</form>
+
+<div id="playerList"></div>
+
+<script>
+    window.onload = function() {
+        displayStoredPlayers();
+    };
+    document.getElementById('playerForm').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        var playerName = document.getElementById('playerName').value;
+        var playerId = generateUniqueId();
+        var player = {
+            id: playerId,
+            name: playerName
+        };
+
+        localStorage.setItem(playerId, JSON.stringify(player));
+
+        displayStoredPlayers();
+        document.getElementById('playerName').value = '';
+    });
+    function displayStoredPlayers() {
+        var playerListDiv = document.getElementById('playerList');
+        playerListDiv.innerHTML = ''; 
+
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            if (!isNaN(parseFloat(key)) && isFinite(key)) {
+                var player = JSON.parse(localStorage.getItem(key));
+                var playerDiv = document.createElement('div');
+                playerDiv.className = 'player';
+                playerDiv.textContent = 'ID: ' + player.id + ', Tên: ' + player.name;
+                playerListDiv.appendChild(playerDiv);
+            }
+        }
+    }
+
+    function generateUniqueId() {
+        return Date.now().toString();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local Storage Values</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        text-align: center;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Local Storage Values</h2>
+    <ul id="localStorageValues">
+    </ul>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var localStorageValues = document.getElementById("localStorageValues");
+        for (var key in localStorage) {
+            var listItem = document.createElement("li");
+            listItem.textContent = key + ": " + localStorage.getItem(key);
+            localStorageValues.appendChild(listItem);
+        }
+    });
+</script>
+
+</body>
+</html>
